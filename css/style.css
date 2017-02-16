@@ -1330,3 +1330,132 @@ pre code {
   padding-right: 20px;
   display: none;
 }
+.cf-form-field {
+  margin-bottom: 1.5rem;
+}
+.cf-form-field > label {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  margin-top: 1.8rem;
+  color: #eee;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+input.cf-form-input {
+  font-size: 16px;
+  color: #2bbc4e;
+  display: block;
+  width: 100%;
+  line-height: 1.5em;
+  outline: 0;
+  padding: 0 2px;
+  background-color: #1d1f21;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-image-width: 0 0 1px 0;
+  border-image-source: url("https://static.contentful.com/app/svg/dotted-border.svg");
+  border-image-repeat: round;
+  border-image-slice: 1 1;
+  transition: 0.2s linear;
+  transition-property: padding;
+  height: 24px;
+}
+input.cf-form-input[focus="true"] {
+  background-color: transparent;
+  color: #777;
+}
+input.cf-form-input[aria-invalid="true"],
+input.cf-form-input:invalid {
+  background-color: #1d1f21;
+}
+input.cf-form-input[aria-disabled="true"],
+input.cf-form-input[disabled],
+input.cf-form-input:disabled {
+  background-color: #1d1f21;
+  color: #777;
+  border-image: none;
+}
+input.cf-form-input[size] {
+  width: auto;
+}
+textarea.cf-form-input {
+  font-size: 16px;
+  color: #2bbc4e;
+  display: block;
+  width: 100%;
+  line-height: 1.5em;
+  outline: 0;
+  padding: 0 2px;
+  background-color: #1d1f21;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-image-width: 0 0 1px 0;
+  border-image-source: url("https://static.contentful.com/app/svg/dotted-border.svg");
+  border-image-repeat: round;
+  border-image-slice: 1 1;
+  transition: 0.2s linear;
+  transition-property: padding;
+  padding-top: 0.2em;
+  height: 8.5em;
+  max-width: 100%;
+}
+textarea.cf-form-input[focus="true"] {
+  background-color: transparent;
+  color: #777;
+}
+textarea.cf-form-input[aria-invalid="true"],
+textarea.cf-form-input:invalid {
+  background-color: #1d1f21;
+}
+textarea.cf-form-input[aria-disabled="true"],
+textarea.cf-form-input[disabled],
+textarea.cf-form-input:disabled {
+  background-color: #1d1f21;
+  color: #777;
+  border-image: none;
+}
+input[type="submit"] {
+  font-size: 16px;
+  color: #2bbc4e;
+  display: block;
+  width: 100%;
+  line-height: 1.5em;
+  outline: 0;
+  padding: 0 2px;
+  background-color: #1d1f21;
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-image-width: 0 0 1px 0;
+  border-image-source: url("https://static.contentful.com/app/svg/dotted-border.svg");
+  border-image-repeat: round;
+  border-image-slice: 1 1;
+  transition: 0.2s linear;
+  transition-property: padding;
+  height: 32px;
+  font-size: 22px;
+  background-color: #2bbc4e;
+  color: #1d1f21;
+}
+input[type="submit"][focus="true"] {
+  background-color: transparent;
+  color: #777;
+}
+input[type="submit"][aria-invalid="true"],
+input[type="submit"]:invalid {
+  background-color: #1d1f21;
+}
+input[type="submit"][aria-disabled="true"],
+input[type="submit"][disabled],
+input[type="submit"]:disabled {
+  background-color: #1d1f21;
+  color: #777;
+  border-image: none;
+}
+input[type="submit"][size] {
+  width: auto;
+}
