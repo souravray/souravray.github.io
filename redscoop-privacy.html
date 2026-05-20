@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy · Redscoop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #FF4500;
+      --bg: #0d0d0d;
+      --surface: #141414;
+      --border: #222;
+      --text: #f0ece6;
+      --muted: #888;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--red); }
+    nav a.nav-link {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    nav a.nav-link:hover { color: var(--text); }
+    main {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 140px 48px 100px;
+    }
+    .page-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .updated {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section { margin-bottom: 52px; }
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    h2::before {
+      content: attr(data-n);
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+    p {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #aaa;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    ul { list-style: none; margin-bottom: 12px; }
+    ul li {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #aaa;
+      line-height: 1.8;
+      padding-left: 18px;
+      position: relative;
+    }
+    ul li::before { content: '–'; position: absolute; left: 0; color: var(--red); }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .callout {
+      background: var(--surface);
+      border-left: 2px solid var(--red);
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout p { margin: 0; font-size: 0.9rem; }
+    footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer p, footer a { font-size: 0.8rem; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--red); }
+    @media (max-width: 640px) {
+      nav { padding: 18px 24px; }
+      main { padding: 100px 24px 80px; }
+      footer { padding: 32px 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="/redscoop">Red<span>scoop</span></a>
+    <a class="nav-link" href="/redscoop">← Back</a>
+  </nav>
+
+  <main>
+    <p class="page-eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: May 2026</p>
+
+    <div class="section">
+      <h2 data-n="01">Overview</h2>
+      <p>
+        Redscoop ("we", "our", "the app") is a native macOS menu bar application built and operated by Sourav Ray (<a href="https://raysourav.com">raysourav.com</a>). Redscoop is a personal Reddit client that helps users monitor and participate in Reddit conversations relevant to their interests.
+      </p>
+      <div class="callout">
+        <p>Redscoop is a Reddit client application. Reddit data is accessed exclusively through each user's own authenticated Reddit account, for that user's personal participation on Reddit. We do not collect, aggregate, resell, or commercialize Reddit data in any form.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 data-n="02">Reddit API Access &amp; OAuth Scopes</h2>
+      <p>Redscoop connects to Reddit using OAuth2 PKCE on behalf of the user. The following scopes are requested:</p>
+      <ul>
+        <li><strong style="color:var(--text);font-weight:500;">identity</strong> — to read the authenticated user's Reddit username</li>
+        <li><strong style="color:var(--text);font-weight:500;">read</strong> — to fetch posts and comments from subreddits the user chooses to monitor</li>
+        <li><strong style="color:var(--text);font-weight:500;">mysubreddits</strong> — to list subreddits the user follows, for configuration</li>
+        <li><strong style="color:var(--text);font-weight:500;">submit</strong> — to post comments that the user has written, reviewed, and explicitly chosen to submit</li>
+      </ul>
+      <p>No other scopes are requested. Redscoop does not access voting, moderation, private messages, mail, or account history.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="03">How Reddit Data Is Used</h2>
+      <p>Reddit content fetched through the API is used solely to:</p>
+      <ul>
+        <li>Display threads from subreddits the user has chosen to follow, within the app</li>
+        <li>Match posts against keywords the user has personally configured</li>
+        <li>Provide thread context to the user's local writing assistant to help compose a reply</li>
+      </ul>
+      <p>Reddit data is not transmitted to any external server operated by us. It is not aggregated, indexed, mined, sold, licensed, or used for advertising targeting. All processing occurs on the user's own device.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="04">No Automated Posting</h2>
+      <p>Redscoop does not post to Reddit automatically. Every comment submitted through the app requires the user to:</p>
+      <ul>
+        <li>Read the suggested draft</li>
+        <li>Edit the draft in their own words before the submit action is available</li>
+        <li>Explicitly trigger the submission themselves</li>
+      </ul>
+      <p>The app is designed to support genuine, human-authored participation — not to automate or replicate content at scale.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="05">Local Writing Assistance</h2>
+      <p>Redscoop includes an optional writing assistant powered by a locally running language model (via Ollama, running on the user's own machine at localhost). Thread content used to generate draft suggestions is processed entirely on-device and is never transmitted to any cloud AI service by default.</p>
+      <p>The local model performs inference only. No Reddit content is used to train, fine-tune, or update any machine learning model.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="06">Data Storage &amp; Retention</h2>
+      <p>Redscoop is a local-first application with no backend server. Your Reddit OAuth credentials are stored in the macOS system Keychain on your device. Thread data, keyword configuration, and draft history are stored in a local SQLite database on your Mac.</p>
+      <p>No Reddit content, credentials, or usage data is stored on servers operated by us.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="07">No User Profiling</h2>
+      <p>Redscoop does not derive, infer, or store sensitive characteristics about Reddit users from the content it processes. Keyword matching operates on post text only and is used solely to surface threads for the authenticated user's own review. No attempt is made to identify, profile, or de-anonymize other Reddit users.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="08">Third-Party Sharing</h2>
+      <p>We do not share your Reddit account data, OAuth tokens, or any Reddit content with third parties for any purpose. The only network communication the app performs is directly between your device and Reddit's official API endpoints.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="09">Revoking Access</h2>
+      <p>You can revoke Redscoop's access to your Reddit account at any time by visiting <a href="https://www.reddit.com/prefs/apps" target="_blank" rel="noopener">reddit.com/prefs/apps</a> and removing Redscoop from your authorised applications. You can also disconnect from within the app's settings.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="10">Reddit API Compliance</h2>
+      <p>Redscoop accesses Reddit data in accordance with <a href="https://www.redditinc.com/policies/data-api-terms" target="_blank" rel="noopener">Reddit's Data API Terms</a> and the <a href="https://support.reddithelp.com/hc/en-us/articles/42728983564564" target="_blank" rel="noopener">Responsible Builder Policy</a>. Your use of Reddit is also governed by <a href="https://www.reddit.com/policies/privacy-policy" target="_blank" rel="noopener">Reddit's Privacy Policy</a>.</p>
+    </div>
+
+    <div class="section">
+      <h2 data-n="11">Contact</h2>
+      <p>Questions, data requests, or concerns? Email <a href="mailto:hello@raysourav.com">hello@raysourav.com</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Redscoop</p>
+    <a href="/redscoop">← Back to Redscoop</a>
+  </footer>
+</body>
+</html>
