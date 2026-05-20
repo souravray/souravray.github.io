@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redscoop — Reddit companion for Mac</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #FF4500;
+      --bg: #0d0d0d;
+      --surface: #141414;
+      --border: #222;
+      --text: #f0ece6;
+      --muted: #888;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(13,13,13,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--red); }
+    nav a.nav-link {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    nav a.nav-link:hover { color: var(--text); }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      max-width: 900px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--red);
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+    h1 em { font-style: normal; color: var(--red); }
+    .hero-body {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #aaa;
+      max-width: 520px;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.35s forwards;
+    }
+    .platform-badge {
+      margin-top: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.5s forwards;
+    }
+    .glow-dot {
+      position: absolute;
+      top: 30%; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,69,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    section {
+      padding: 80px 48px;
+      max-width: 900px;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .what-card {
+      background: var(--surface);
+      padding: 32px;
+    }
+    .what-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .what-card p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid rgba(255,69,0,0.3);
+      padding: 3px 8px;
+      margin-bottom: 14px;
+    }
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--red); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 18px 24px; }
+      .hero { padding: 100px 24px 60px; }
+      section { padding: 60px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; gap: 12px; align-items: flex-start; }
+      .what-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="/redscoop">Red<span>scoop</span></a>
+    <a class="nav-link" href="/redscoop/privacy">Privacy Policy</a>
+  </nav>
+
+  <div class="hero">
+    <div class="glow-dot"></div>
+    <div class="eyebrow">macOS menu bar app</div>
+    <h1>Stay in the<br/><em>conversation</em></h1>
+    <p class="hero-body">
+      Redscoop sits in your Mac menu bar and helps you keep up with Reddit threads
+      relevant to your interests. Get notified when a conversation matches your
+      topics, compose a thoughtful reply with writing assistance, and participate
+      on your own terms.
+    </p>
+    <div class="platform-badge">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+      macOS only &nbsp;·&nbsp; Your account, your posts
+    </div>
+  </div>
+
+  <section>
+    <p class="section-label">About</p>
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="tag">What it does</div>
+        <h3>Surfaces relevant threads</h3>
+        <p>Configure keywords and subreddits you care about. Redscoop monitors your feed in the background and notifies you when a matching thread appears, so you never miss a conversation worth joining.</p>
+      </div>
+      <div class="what-card">
+        <div class="tag">Writing assistance</div>
+        <h3>Compose, then you decide</h3>
+        <p>A local writing assistant helps you draft a reply based on the thread context. You read it, rewrite it, and post it yourself — nothing is submitted automatically, ever.</p>
+      </div>
+      <div class="what-card">
+        <div class="tag">Your account</div>
+        <h3>Authenticated, not scraped</h3>
+        <p>Redscoop uses Reddit's official OAuth2 API with your own account credentials. It accesses only what you have permission to see and requests only the scopes it needs.</p>
+      </div>
+      <div class="what-card">
+        <div class="tag">Contact</div>
+        <h3>Questions or concerns</h3>
+        <p>Reach out at <a href="mailto:hello@raysourav.com" style="color:var(--red);text-decoration:none;">hello@raysourav.com</a> for anything about the app, your data, or revoking access.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Redscoop · Built by <a href="https://raysourav.com">raysourav.com</a></p>
+    <a href="/redscoop/privacy">Privacy Policy</a>
+  </footer>
+</body>
+</html>
